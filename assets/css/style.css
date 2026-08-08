@@ -4,8 +4,8 @@
    ========================================================================== */
 
 :root {
-  --bordeaux:      #9c3f39;   /* הבורדו של הלוגו */
-  --bordeaux-dark: #7d302b;
+  --bordeaux:      #8b4140;   /* נדגם מרקע קובץ הלוגו */
+  --bordeaux-dark: #6f3231;
   --forest:        #1c3020;
   --forest-deep:   #122115;
   --cream:         #f6f1e8;
@@ -17,7 +17,6 @@
 
   --serif: 'Frank Ruhl Libre', Georgia, serif;
   --sans:  'Heebo', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --script: 'Great Vibes', 'Brush Script MT', cursive;
   --logo-sans: 'Montserrat', var(--sans);
 
   --wrap: 1140px;
@@ -52,7 +51,7 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 2.9rem); }
 h3 { font-size: 1.15rem; }
 p  { margin: 0 0 1.1em; }
 
-a { color: inherit; text-decoration-color: rgba(156, 63, 57, .45); text-underline-offset: .22em; }
+a { color: inherit; text-decoration-color: rgba(139, 65, 64, .45); text-underline-offset: .22em; }
 a:hover { text-decoration-color: var(--bordeaux); }
 
 .wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
@@ -103,17 +102,11 @@ a:hover { text-decoration-color: var(--bordeaux); }
 
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: 72px; }
 
-.brand { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: .1rem; }
-.brand-text { display: flex; flex-direction: column; align-items: center; line-height: 1; }
-.brand-fox { width: 22px; height: auto; fill: var(--bordeaux); flex: none; }
-.brand-mark {
-  font-family: var(--script); font-size: 1.8rem; line-height: .9;
-  color: var(--bordeaux); letter-spacing: .01em;
-}
+.brand { text-decoration: none; display: flex; align-items: center; flex: none; }
+.brand-logo { width: auto; height: 56px; }
 .brand-sub {
-  font-family: var(--logo-sans); font-size: .52rem; font-weight: 600;
-  letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft);
-  margin-top: .1rem;
+  font-family: var(--logo-sans); font-size: .58rem; font-weight: 600;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--cream-dim);
 }
 
 .nav { display: flex; gap: 1.6rem; margin-inline-start: auto; }
@@ -141,15 +134,14 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .hero { position: relative; color: var(--cream); overflow: hidden; }
 .hero-bg {
   position: absolute; inset: 0;
-  /* TODO: להחליף ב-url('../img/hero.jpg') כשתהיה תמונה */
-  background:
-    radial-gradient(120% 90% at 80% 0%, rgba(156, 63, 57, .5), transparent 60%),
-    linear-gradient(160deg, var(--forest) 0%, var(--forest-deep) 55%, #0d1810 100%);
+  background: #16130f url('../img/hero.jpg') center 42% / cover no-repeat;
 }
+/* השכבה הזו היא מה שמחזיק את הניגודיות של הטקסט הלבן מעל התצלום. */
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(246,241,232,.05) 1px, transparent 1px);
-  background-size: 4px 4px;
+  background:
+    linear-gradient(to left, rgba(12, 16, 12, .9) 0%, rgba(12, 16, 12, .72) 45%, rgba(12, 16, 12, .25) 100%),
+    linear-gradient(to top, rgba(12, 16, 12, .55), transparent 55%);
 }
 .hero-inner { position: relative; padding: clamp(5rem, 14vw, 9.5rem) 0 clamp(4rem, 9vw, 6.5rem); max-width: 40ch; }
 .hero .eyebrow { color: var(--cream-dim); }
@@ -173,16 +165,9 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .facts li { padding-inline-start: 1.1rem; border-inline-start: 2px solid var(--bordeaux); font-size: .95rem; color: var(--ink-soft); }
 .facts strong { display: block; font-weight: 500; color: var(--ink); }
 
-.img-placeholder {
-  position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--cream-dim), #d8cfbf);
-  border: 1px dashed rgba(33, 28, 25, .22);
-}
-.img-placeholder.tall { aspect-ratio: 3 / 4; }
-.img-placeholder::after {
-  content: attr(data-label); position: absolute; inset: 0;
-  display: grid; place-items: center;
-  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+.about-img {
+  width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: var(--radius); box-shadow: var(--shadow);
 }
 
 /* ---------- Menu ---------- */
@@ -237,8 +222,13 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .section-reviews .btn-ghost:hover { background: var(--cream); color: var(--forest-deep); border-color: var(--cream); }
 
 /* ---------- Gallery ---------- */
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.gallery-grid > * { border-radius: var(--radius); overflow: hidden; }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.gallery-grid img {
+  width: 100%; height: auto; aspect-ratio: 1; object-fit: cover;
+  border-radius: var(--radius);
+  transition: transform .5s ease, filter .5s ease;
+}
+.gallery-grid img:hover { transform: scale(1.03); filter: brightness(1.05); }
 
 /* ---------- Visit ---------- */
 .section-visit { background: #fbf8f2; border-top: 1px solid var(--line); }
@@ -265,10 +255,8 @@ a:hover { text-decoration-color: var(--bordeaux); }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-deep); color: var(--cream-dim); padding: 3rem 0 2.2rem; }
 .footer-inner { display: grid; gap: 1.5rem; justify-items: center; text-align: center; }
-.footer-brand { display: flex; flex-direction: column; align-items: center; gap: .35rem; }
-.site-footer .brand-fox { width: 38px; fill: var(--cream); }
-.site-footer .brand-mark { color: var(--cream); display: block; line-height: 1; }
-.site-footer .brand-sub { color: var(--cream-dim); }
+.footer-brand { display: flex; flex-direction: column; align-items: center; gap: .7rem; }
+.footer-brand .brand-logo { height: 92px; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; font-size: .92rem; }
 .copy { font-size: .78rem; margin: 0; color: rgba(231, 223, 209, .6); }
 
@@ -280,9 +268,10 @@ a:hover { text-decoration-color: var(--bordeaux); }
 @media (max-width: 900px) {
   .grid-2 { grid-template-columns: 1fr; }
   .about-media { order: -1; }
-  .img-placeholder.tall { aspect-ratio: 4 / 3; }
+  .about-img { aspect-ratio: 4 / 3; }
   .menu-groups { columns: 1; }
   .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -298,7 +287,8 @@ a:hover { text-decoration-color: var(--bordeaux); }
   .nav a { padding: .85rem 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
   .nav a::after { display: none; }
 
-  .reviews-grid, .gallery-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .map-wrap iframe { height: 320px; }
   .hero-actions .btn { flex: 1 1 auto; }
 }
