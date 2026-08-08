@@ -4,8 +4,8 @@
    ========================================================================== */
 
 :root {
-  --bordeaux:      #7a1f2b;
-  --bordeaux-dark: #5c1720;
+  --bordeaux:      #9c3f39;   /* הבורדו של הלוגו */
+  --bordeaux-dark: #7d302b;
   --forest:        #1c3020;
   --forest-deep:   #122115;
   --cream:         #f6f1e8;
@@ -17,6 +17,8 @@
 
   --serif: 'Frank Ruhl Libre', Georgia, serif;
   --sans:  'Heebo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --script: 'Great Vibes', 'Brush Script MT', cursive;
+  --logo-sans: 'Montserrat', var(--sans);
 
   --wrap: 1140px;
   --radius: 4px;
@@ -50,7 +52,7 @@ h2 { font-size: clamp(1.9rem, 4.2vw, 2.9rem); }
 h3 { font-size: 1.15rem; }
 p  { margin: 0 0 1.1em; }
 
-a { color: inherit; text-decoration-color: rgba(122, 31, 43, .45); text-underline-offset: .22em; }
+a { color: inherit; text-decoration-color: rgba(156, 63, 57, .45); text-underline-offset: .22em; }
 a:hover { text-decoration-color: var(--bordeaux); }
 
 .wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
@@ -82,6 +84,9 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .btn-lg { padding: .95rem 2.1rem; font-size: 1.02rem; }
 .btn-primary { background: var(--bordeaux); color: var(--cream); }
 .btn-primary:hover { background: var(--bordeaux-dark); transform: translateY(-1px); }
+.btn-wa { background: #1f9d55; color: #fff; }
+.btn-wa:hover { background: #178044; transform: translateY(-1px); }
+.wa-icon { width: 1.15em; height: 1.15em; fill: currentColor; flex: none; }
 .btn-ghost { border-color: currentColor; color: inherit; }
 .btn-ghost:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 .hero .btn-ghost:hover { background: var(--cream); color: var(--forest-deep); border-color: var(--cream); }
@@ -98,9 +103,18 @@ a:hover { text-decoration-color: var(--bordeaux); }
 
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: 72px; }
 
-.brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1.05; }
-.brand-mark { font-family: var(--serif); font-size: 1.55rem; color: var(--bordeaux); letter-spacing: .01em; }
-.brand-sub  { font-size: .6rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-soft); }
+.brand { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: .1rem; }
+.brand-text { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.brand-fox { width: 22px; height: auto; fill: var(--bordeaux); flex: none; }
+.brand-mark {
+  font-family: var(--script); font-size: 1.8rem; line-height: .9;
+  color: var(--bordeaux); letter-spacing: .01em;
+}
+.brand-sub {
+  font-family: var(--logo-sans); font-size: .52rem; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft);
+  margin-top: .1rem;
+}
 
 .nav { display: flex; gap: 1.6rem; margin-inline-start: auto; }
 .nav a { text-decoration: none; font-size: .95rem; position: relative; padding: .25rem 0; }
@@ -129,7 +143,7 @@ a:hover { text-decoration-color: var(--bordeaux); }
   position: absolute; inset: 0;
   /* TODO: להחליף ב-url('../img/hero.jpg') כשתהיה תמונה */
   background:
-    radial-gradient(120% 90% at 80% 0%, rgba(122, 31, 43, .55), transparent 60%),
+    radial-gradient(120% 90% at 80% 0%, rgba(156, 63, 57, .5), transparent 60%),
     linear-gradient(160deg, var(--forest) 0%, var(--forest-deep) 55%, #0d1810 100%);
 }
 .hero-bg::after {
@@ -140,7 +154,7 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .hero-inner { position: relative; padding: clamp(5rem, 14vw, 9.5rem) 0 clamp(4rem, 9vw, 6.5rem); max-width: 40ch; }
 .hero .eyebrow { color: var(--cream-dim); }
 .hero h1 { color: var(--cream); }
-.hero h1 .accent { color: #d9a4ac; }
+.hero h1 .accent { color: #e3aaa1; }
 .lede { font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--cream-dim); max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 2.4rem; }
 .hero-rating { display: flex; align-items: center; gap: .5rem; font-size: .92rem; color: var(--cream-dim); margin: 0; }
@@ -204,7 +218,7 @@ a:hover { text-decoration-color: var(--bordeaux); }
 
 /* ---------- Reviews ---------- */
 .section-reviews { background: var(--forest-deep); color: var(--cream); }
-.section-reviews .eyebrow { color: #d9a4ac; }
+.section-reviews .eyebrow { color: #e3aaa1; }
 .section-reviews .section-sub { color: var(--cream-dim); }
 
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -216,7 +230,7 @@ a:hover { text-decoration-color: var(--bordeaux); }
 .review blockquote {
   margin: 0 0 1.1rem; font-family: var(--serif); font-size: 1.03rem; line-height: 1.65; color: var(--cream);
 }
-.review blockquote::before { content: '״'; color: #d9a4ac; margin-inline-end: .1em; }
+.review blockquote::before { content: '״'; color: #e3aaa1; margin-inline-end: .1em; }
 .review figcaption { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--cream-dim); }
 
 .reviews-cta { text-align: center; margin: 3rem 0 0; }
@@ -251,7 +265,10 @@ a:hover { text-decoration-color: var(--bordeaux); }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-deep); color: var(--cream-dim); padding: 3rem 0 2.2rem; }
 .footer-inner { display: grid; gap: 1.5rem; justify-items: center; text-align: center; }
-.site-footer .brand-mark { color: var(--cream); display: block; }
+.footer-brand { display: flex; flex-direction: column; align-items: center; gap: .35rem; }
+.site-footer .brand-fox { width: 38px; fill: var(--cream); }
+.site-footer .brand-mark { color: var(--cream); display: block; line-height: 1; }
+.site-footer .brand-sub { color: var(--cream-dim); }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; font-size: .92rem; }
 .copy { font-size: .78rem; margin: 0; color: rgba(231, 223, 209, .6); }
 
