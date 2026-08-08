@@ -1,6 +1,6 @@
 ---
 name: local-business-site
-description: Builds a polished single-page Hebrew (RTL) website for a local business — restaurant, bar, café, salon, clinic, studio — from whatever the owner has lying around: phone screenshots of a menu or price list, Instagram photos, a logo image, a Google Maps listing, a booking link. Produces static HTML/CSS/JS with no build step, ready for GitHub Pages. Use this skill whenever someone asks for a website, landing page, or online presence for a local venue or small business, and also when they just start sending menu photos, a logo, opening hours, or Google reviews and expect a site to come out of it — even if they never say the words "website" or "RTL". Also use it for updating such a site later (new prices, new photos, new sections).
+description: 'Builds a polished single-page Hebrew (RTL) website for a local business — restaurant, bar, café, salon, clinic, studio — out of whatever the owner has lying around, such as phone screenshots of a menu or price list, Instagram photos, a logo image, a Google Maps listing, or a booking link. Produces static HTML/CSS/JS with no build step, ready for GitHub Pages. Use this skill whenever someone asks for a website, landing page, or online presence for a local venue or small business, and also when they simply start sending menu photos, a logo, opening hours, or Google reviews and expect a site to come out of it — even if they never say the words website or RTL. Also use it for updating such a site later, for new prices, new photos, or new sections.'
 ---
 
 # Local business site
